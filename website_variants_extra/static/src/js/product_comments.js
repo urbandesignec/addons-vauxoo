@@ -12,16 +12,23 @@
                 var comments_qty = JSON.parse(data);
                 if (comments_qty > 0){
                     var concept = comments_qty >= 2 ? "reviews" : "review";
-                    $('#no-reviews').text("Read "+comments_qty+" "+concept);
+                    $('#no-reviews').text(comments_qty+" "+concept);
+                }
+                else{
+                    $('#no-reviews').parent().hide();
                 }
             });
         }
         else{
-            var comments_qty = $('#comments-list').children().length;
-            if (comments_qty > 0){
-                var concept = comments_qty >= 2 ? "reviews" : "review";
-                $('#no-reviews').text("Read "+comments_qty+" "+concept);
-            }
+                var comments_qty = $('#comments-list').children().length;
+                if (comments_qty > 0){
+                    var concept = comments_qty >= 2 ? "reviews" : "review";
+                    $('#no-reviews').text(comments_qty+" "+concept);
+                }
+                else{
+                    $('#no-reviews').parent().hide();
+                }
+
         }
     });
 
