@@ -68,7 +68,10 @@ class AccountVoucher(osv.Model):
 
     def recompute_moves(self, cr, uid, ids, partner_id, journal_id, amount, currency_id,
                         ttype, date, values, move_exclude, context=None):
-
+			
+        if context is None:
+            context = {}
+        context = dict(context)
         move_include = self.move_include(
             cr, uid, values, move_exclude, context=context)
         context['move_line_ids'] = move_include
